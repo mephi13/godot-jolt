@@ -18,6 +18,7 @@ set(use_sse4_2 $<BOOL:${GDJ_USE_SSE4_2}>)
 set(use_sse4_2 $<BOOL:${GDJ_USE_SSE4_2}>)
 
 set(is_double_precision $<BOOL:${GDJ_DOUBLE_PRECISION}>)
+set(is_cross_deterministic $<BOOL:${GDJ_CROSS_PLATFORM_DETERMINISTIC}>)
 
 set(is_msvc_cl $<CXX_COMPILER_ID:MSVC>)
 
@@ -52,6 +53,7 @@ gdj_add_external_library(jolt "${configurations}"
 		$<${use_sse4_2}:JPH_USE_SSE4_2>
 		$<${use_sse4_2}:JPH_USE_SSE4_1>
 		$<${is_double_precision}:JPH_DOUBLE_PRECISION>
+		$<${is_cross_deterministic}:JPH_CROSS_PLATFORM_DETERMINISTIC>
 	COMPILE_DEFINITIONS_DEBUG
 		${dev_definitions}
 	COMPILE_DEFINITIONS_RELEASE
@@ -75,6 +77,7 @@ gdj_add_external_library(jolt "${configurations}"
 		-DUSE_SSE4_1=${GDJ_USE_SSE4_2}
 		-DUSE_STATIC_MSVC_RUNTIME_LIBRARY=${GDJ_STATIC_RUNTIME_LIBRARY}
 		-DDOUBLE_PRECISION=${GDJ_DOUBLE_PRECISION}
+		-DCROSS_PLATFORM_DETERMINISTIC=${GDJ_CROSS_PLATFORM_DETERMINISTIC}
 		${override_cxx_flags_arg}
 	LIBRARY_CONFIG_DEBUG Debug
 	LIBRARY_CONFIG_DEVELOPMENT Release

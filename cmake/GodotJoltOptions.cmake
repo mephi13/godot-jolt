@@ -33,6 +33,11 @@ set(GDJ_DOUBLE_PRECISION FALSE
 	"Compile with 64-bit floating-point precision."
 )
 
+set(GDJ_CROSS_PLATFORM_DETERMINISTIC FALSE
+	CACHE BOOL
+	"Compile Jolt with cross-platform determinism. Causes performance loss."
+)
+
 if(NOT APPLE AND NOT ANDROID)
 	set(GDJ_X86_INSTRUCTION_SET SSE2
 		CACHE STRING
