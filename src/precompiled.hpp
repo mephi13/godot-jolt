@@ -124,6 +124,7 @@
 #include <Jolt/Physics/SoftBody/SoftBodyManifold.h>
 #include <Jolt/Physics/SoftBody/SoftBodyMotionProperties.h>
 #include <Jolt/Physics/SoftBody/SoftBodySharedSettings.h>
+#include <Jolt/Physics/StateRecorderImpl.h>
 #include <Jolt/RegisterTypes.h>
 
 #ifdef JPH_DEBUG_RENDERER

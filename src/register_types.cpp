@@ -12,6 +12,7 @@
 #include "servers/jolt_project_settings.hpp"
 #include "spaces/jolt_debug_geometry_3d.hpp"
 #include "spaces/jolt_physics_direct_space_state_3d.hpp"
+#include "spaces/jolt_state_recorder.hpp"
 
 #define ERR_PRINT_EARLY(m_msg) \
 	internal::gdextension_interface_print_error(m_msg, __FUNCTION__, __FILE__, __LINE__, false)
@@ -49,6 +50,7 @@ void on_initialize(ModuleInitializationLevel p_level) {
 			ClassDB::register_class<JoltSliderJoint3D>();
 			ClassDB::register_class<JoltConeTwistJoint3D>();
 			ClassDB::register_class<JoltGeneric6DOFJoint3D>();
+			ClassDB::register_class<JoltStateRecorder>();
 		} break;
 		case MODULE_INITIALIZATION_LEVEL_EDITOR: {
 #ifdef GDJ_CONFIG_EDITOR
