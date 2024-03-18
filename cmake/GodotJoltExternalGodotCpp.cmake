@@ -19,8 +19,8 @@ set(editor_definitions
 )
 
 gdj_add_external_library(godot-cpp "${configurations}"
-	GIT_REPOSITORY https://github.com/godot-jolt/godot-cpp.git
-	GIT_COMMIT 550f91b2dc38ccf200d7ff1435910f5e2a60f1d6
+	GIT_REPOSITORY ../../../../../godot-cpp
+	GIT_COMMIT d642d6244900215b88c620efb4d7799893b454a0
 	LANGUAGE CXX
 	OUTPUT_NAME godot-cpp
 	INCLUDE_DIRECTORIES

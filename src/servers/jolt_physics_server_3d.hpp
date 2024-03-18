@@ -614,6 +614,10 @@ public:
 
 	bool _is_flushing_queries() const override;
 
+	void _space_step(const RID &space, double delta) override;
+
+ 	void _space_flush_queries(const RID &space) override;
+
 	int32_t _get_process_info(PhysicsServer3D::ProcessInfo p_process_info) override;
 
 	void free_space(JoltSpace3D* p_space);

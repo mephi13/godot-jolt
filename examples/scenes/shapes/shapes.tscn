@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
 [node name="Sphere" parent="." instance=ExtResource("3_4mmy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
 
-[node name="Box" parent="." instance=ExtResource("4_tqif0")]
+[node name="BoxPhysicsController" parent="." instance=ExtResource("4_tqif0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0)
 
 [node name="Capsule" parent="." instance=ExtResource("5_h3oln")]

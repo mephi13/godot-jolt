@@ -1910,6 +1910,30 @@ void JoltPhysicsServer3D::_flush_queries() {
 #endif // GDJ_CONFIG_EDITOR
 }
 
+void JoltPhysicsServer3D::_space_step(const RID &space, double delta) {
+	JoltSpace3D *_space = space_owner.get_or_null(space);
+	// fail if space is null
+	ERR_FAIL_NULL(_space);
+
+	// we want to step only the selected space;
+	job_system->pre_step(); 
+
+	_space->step((float)delta);
+
+	job_system->post_step();
+}
+
+void JoltPhysicsServer3D::_space_flush_queries(const RID &space) {
+	flushing_queries = true;
+
+	JoltSpace3D *_space = space_owner.get_or_null(space);
+	ERR_FAIL_NULL(_space);
+
+	_space->call_queries();
+
+	flushing_queries = false;
+}
+
 void JoltPhysicsServer3D::_finish() {
 	delete_safely(job_system);
 }
