@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cxj20ksax0cnv" path="res://scenes/shapes/entities/capsule/capsule.tscn" id="5_h3oln"]
 [ext_resource type="PackedScene" uid="uid://dufmnyw4ry3c3" path="res://scenes/shapes/entities/cylinder/cylinder.tscn" id="6_tlkvd"]
 [ext_resource type="PackedScene" uid="uid://cqqkfrnystsat" path="res://scenes/shapes/entities/convex_polygon/convex_polygon.tscn" id="7_objwy"]
-[ext_resource type="PackedScene" uid="uid://cco8tutfmoey8" path="res://scenes/shapes/entities/height_map/height_map.tscn" id="8_8j6mc"]
+[ext_resource type="PackedScene" uid="uid://cco8tutfmoey8" path="res://scenes/shapes/entities/height_map/height_map.tscn" id="9_gw26v"]
 [ext_resource type="PackedScene" uid="uid://dosgsvakfplrm" path="res://scenes/shapes/entities/concave_polygon/concave_polygon.tscn" id="9_i15bi"]
 
 [node name="Shapes" type="Node3D"]
@@ -47,8 +47,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
 [node name="ConvexPolygon" parent="." instance=ExtResource("7_objwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
-[node name="HeightMap" parent="." instance=ExtResource("8_8j6mc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="HeightMap" parent="." instance=ExtResource("9_gw26v")]
+amplitude = 6.5
 
 [node name="ConcavePolygon" parent="." instance=ExtResource("9_i15bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

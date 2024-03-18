@@ -22,6 +22,9 @@ void JoltStateRecorder::SaveState(JoltPhysicsDirectSpaceState3D* JoltSpace) {
 }
 
 bool JoltStateRecorder::RestoreState(JoltPhysicsDirectSpaceState3D* JoltSpace) {
+    if (internal_recorder->IsEOF() || ((JPH::StateRecorderImpl*)internal_recorder)->IsFailed()) {
+        return false;
+    }
 	return JoltSpace->get_space().get_physics_system().RestoreState(*internal_recorder);
 }
 

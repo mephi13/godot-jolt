@@ -1,8 +1,7 @@
 extends RigidBody3D
 
 var recorder = JoltStateRecorder.new()
-var previous_state = JoltStateRecorder.new()
-var next_state = JoltStateRecorder.new()
+var saved_state = JoltStateRecorder.new()
 var first_frame = true
 var state;
 var acc_time = 0.0;
@@ -29,15 +28,25 @@ func _process(delta):
 		
 			JoltPhysicsServer3D.space_step(rid, frame_time)
 			JoltPhysicsServer3D.space_flush_queries(rid)
-
-	if first_frame:
-		first_frame = false
-	if Input.is_action_just_pressed("reset"):
+	elif Input.is_action_just_pressed("restore"):
+		saved_state.restore_state(state)
+		JoltPhysicsServer3D.space_step(rid, frame_time)
+		JoltPhysicsServer3D.space_flush_queries(rid)
+		acc_time = 0
+	elif Input.is_action_just_pressed("reset"):
+		recorder.restore_state(state)
+		recorder.save_state(state)	
+		JoltPhysicsServer3D.space_step(rid, frame_time)
+		JoltPhysicsServer3D.space_flush_queries(rid)
+		acc_time = 0
+	if Input.is_action_just_pressed("save"):
+		saved_state.save_state(state)
+	if Input.is_action_just_pressed("test"):
 		#recorder.restore_state(state)
 		var sum = 0;
 		for item in get_parent().get_children():
-			if item is Node3D:
+			if item is RigidBody3D:
 				sum += hash(item.transform)
-		# end state should be 23367139142
+		# end state should be 13799380834
 		print(sum)
 
